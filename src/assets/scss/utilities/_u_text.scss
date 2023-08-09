@@ -1,0 +1,33 @@
+@use "../global" as *;
+
+.u_txt_left {
+  text-align: left !important;
+}
+
+.u_txt_right {
+  text-align: right !important;
+}
+
+.u_txt_center {
+  text-align: center !important;
+}
+.u_txt_bold {
+  font-weight: 700 !important;
+}
+.u_txt_regular {
+  font-weight: 400 !important;
+}
+.u_txt_light {
+  font-weight: 300 !important;
+}
+
+.u_f_b1{
+  font-family: $font-family-jp !important;
+}
+.u_f_petch{
+  font-family: $font-family-number !important;
+}
+.u_f_base{
+  font-family: $font-family-base !important;
+}
+

@@ -1,0 +1,138 @@
+@use "../global"as *;
+
+/*!
+foundation > base
+------------------------------
+*/
+body {
+    line-height: calc(32 / 16);
+    font-size: rem(16);
+    font-weight: 500;
+    color: #333;
+    font-family: $font-family-base;
+
+    @include mq(md) {
+        font-size: rem(18);
+    }
+}
+
+main {
+    margin-top: 75px;
+
+    @include mq(md) {
+        margin-top: 90px;
+    }
+
+    @include mq(ld) {
+        margin-top: 93px;
+    }
+
+    @include mq(xd) {
+        margin-top: 144px;
+    }
+}
+
+.body-wrapper {
+    position: relative;
+    display: block;
+    overflow-x: hidden;
+}
+
+img {
+    width: 100%;
+}
+
+a {
+    cursor: pointer;
+    transition: 0.5s;
+    text-decoration: underline;
+    text-underline-position: under;
+
+    &:hover {
+        opacity: 1;
+
+        @include mq(md) {
+            opacity: 0.8;
+            text-decoration: none;
+        }
+    }
+
+    &.link_target {
+        @include mq(md) {
+            &::after {
+                top: auto !important;
+                margin-top: 12px;
+            }
+        }
+    }
+
+    &[target=_blank] {
+        position: relative;
+        margin-right: 20px;
+
+        &::after {
+            position: absolute;
+            top: 5px;
+            right: -20px;
+            content: "";
+            background: url(../images/common/icon_04.svg) no-repeat center;
+            background-size: contain;
+            width: 12px;
+            height: 12px;
+
+            @include mq(md) {
+                top: 2px;
+                height: 16px;
+                width: 16px;
+            }
+        }
+
+        &.no_icon {
+            margin-right: 0;
+
+            &::after {
+                display: none;
+            }
+        }
+    }
+}
+
+.pc {
+    display: none !important;
+
+    @include mq(md) {
+        display: block !important;
+    }
+}
+
+.pc_i_b {
+    display: none;
+
+    @include mq(md) {
+        display: inline-block;
+    }
+}
+
+.sp {
+    display: block !important;
+
+    @include mq(md) {
+        display: none !important;
+    }
+}
+
+.ld_pc {
+    display: none !important;
+
+    @include mq(ld) {
+        display: block !important;
+    }
+}
+
+.ld_sp {
+    display: block !important;
+
+    @include mq(ld) {
+        display: none !important;
+    }
+}
