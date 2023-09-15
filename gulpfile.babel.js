@@ -27,7 +27,7 @@ const path = {
   },
   json: {
     package: './package.json',
-    newsList: './src/data/newsList.json'
+    newsList: './src/_data/newsList.json'
   }
 };
 
