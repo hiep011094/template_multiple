@@ -25,6 +25,7 @@ for (let index = 1; index < array.length; index++) {
   <link rel="shortcut icon" type="image/x-icon" href="<%= assetsDir %>assets/images/common/favicon.ico" />
   <title><%= file.data.title %></title>
   <!-- link -->  
+  <link rel="stylesheet" href="<%= assetsDir %>assets/css/aos.css">
   <% if(file.data.css){ 
     file.data.css.forEach(cssItem => { %>
   <link rel="stylesheet" href="<%= assetsDir %>assets/css/<%= cssItem %>.css">
@@ -50,6 +51,7 @@ for (let index = 1; index < array.length; index++) {
     <!-- script -->  
 
     <script src="<%= assetsDir %>assets/js/jquery-3.5.1.min.js"></script>
+    <script src="<%= assetsDir %>assets/js/aos.js"></script>
     <script src="<%= assetsDir %>assets/js/cookie.js"></script>
   <% if(file.data.js){ 
      file.data.js.forEach(jsItem => { %>
