@@ -7,9 +7,9 @@ css: ['slick','common','top']
 js: ['slick.min','common','top']
 ---
 <script>
-    if (!window.sessionStorage.getItem("hrone_loadding")) {
+    if (!window.sessionStorage.getItem("storage_loadding")) {
         document.documentElement.classList.add("is_loadding");    
-        window.sessionStorage.setItem("hrone_loadding", new Date().getTime().toString());    
+        window.sessionStorage.setItem("storage_loadding", new Date().getTime().toString());    
     }
 </script>
 <main class="p_top">   

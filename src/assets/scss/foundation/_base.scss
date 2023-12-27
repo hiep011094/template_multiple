@@ -16,26 +16,11 @@ body {
     }
 }
 
-main {
-    margin-top: 75px;
-
-    @include mq(md) {
-        margin-top: 90px;
-    }
-
-    @include mq(ld) {
-        margin-top: 93px;
-    }
-
-    @include mq(xd) {
-        margin-top: 144px;
-    }
-}
 
 .body-wrapper {
     position: relative;
     display: block;
-    overflow-x: hidden;
+    overflow: hidden;
 }
 
 img {
@@ -105,34 +90,11 @@ a {
     }
 }
 
-.pc_i_b {
-    display: none;
-
-    @include mq(md) {
-        display: inline-block;
-    }
-}
 
 .sp {
     display: block !important;
 
     @include mq(md) {
-        display: none !important;
-    }
-}
-
-.ld_pc {
-    display: none !important;
-
-    @include mq(ld) {
-        display: block !important;
-    }
-}
-
-.ld_sp {
-    display: block !important;
-
-    @include mq(ld) {
         display: none !important;
     }
 }
