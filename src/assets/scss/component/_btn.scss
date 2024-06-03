@@ -5,6 +5,158 @@
 component > btn
 ------------------------------
 */
+.c_btn{
+    display: inline-block;
+    background-color: #E95037;
+    font-size: vw(12);
+    font-weight: 500;
+    letter-spacing: 0;
+    line-height: 1.4;
+    padding: vw(10) vw(15);
+    text-align: center;
+    color: #fff;
+    border-radius: vw(40);
+    
+    @include mq(md) {
+        border-radius: vw(40, 1300);
+        font-size: vw(14, 1300);
+        font-size: max(10px, 1.07692vw);
+        min-width: vw(150, 1300);
+        padding: vw(10, 1300) vw(20, 1300);
+    }    
+}
+a.c_btn:hover{
+    @include mq(md) {
+        box-shadow: 0 5px 8px rgba($color: #333, $alpha: .35);
+        opacity: 1;
+    }
+}
+
+.c_btn01{
+    display: inline-block;
+    border: 2px solid #E95037;
+    font-size: vw(12);
+    font-weight: 700;
+    letter-spacing: 0;
+    line-height: 1.4;
+    padding: vw(10) vw(15);
+    text-align: center;
+    color: #E95037;
+    border-radius: vw(60);
+    background-color: #fff;
+    @include mq(md) {
+        border-radius: vw(60,1300);
+        font-size: vw(14, 1300);
+        font-size: max(10px, 1.07692vw);
+        width: vw(238, 1300);
+        min-width: 180px;
+        padding: vw(18, 1300) vw(10, 1300);
+        border: 3px solid #E95037;
+    }
+    &_red{
+        color: #E95037;
+        border: 2px solid #E95037;
+        @include mq(md) {
+            border: 3px solid #E95037;
+        }
+    }
+    &_yellow{
+        color: #FCD03E;
+        border: 2px solid #FCD03E;
+        @include mq(md) {
+            border: 3px solid #FCD03E;
+        }
+    }
+    &_blue{
+        color: #8BD1F4;
+        border: 2px solid #8BD1F4;
+        @include mq(md) {
+            border: 3px solid #8BD1F4;
+        }
+    }        
+}
+a.c_btn01:hover{
+    @include mq(md) {
+        color: #fff;
+        background-color: #E95037;
+        box-shadow: 0 5px 8px rgba($color: #333, $alpha: .35);
+        opacity: 1;
+        &.c_btn01_red{
+            background-color: #E95037;
+        }
+        &.c_btn01_yellow{
+            background-color: #FCD03E;
+        }
+        &.c_btn01_blue{
+            background-color: #8BD1F4;
+        }
+    }
+}
+
+.c_btn02{
+    display: inline-block;
+    border: 2px solid #E95037;
+    font-size: vw(16);
+    font-weight: 700;
+    letter-spacing: 0;
+    line-height: 1.4;
+    padding: vw(10) vw(15);
+    text-align: center;
+    color: #fff;
+    background-color: #E95037;
+    letter-spacing: 0.15em;
+    font-feature-settings: "palt";
+    @include mq(md) {
+        font-size: vw(18, 1300);
+        min-width: vw(324, 1300);
+        padding: vw(9, 1300) vw(20, 1300) vw(10, 1300) vw(20, 1300);
+        border: 3px solid #E95037;
+    }
+    &_red{
+        background-color: #E95037;
+        border: 2px solid #E95037;
+        @include mq(md) {
+            border: 3px solid #E95037;
+        }
+    }
+    &_yellow{
+        background-color: #FCD03E;
+        border: 2px solid #FCD03E;
+        @include mq(md) {
+            border: 3px solid #FCD03E;
+        }
+    }
+    &_blue{
+        background-color: #8BD1F4;
+        border: 2px solid #8BD1F4;
+        @include mq(md) {
+            border: 3px solid #8BD1F4;
+        }
+    }
+    
+}
+
+a.c_btn02:hover{
+    @include mq(md) {
+        color: #E95037;
+        background-color: #fff;
+        box-shadow: 0 5px 8px rgba($color: #333, $alpha: .35);
+        opacity: 1;
+        &.c_btn01_red{
+            color: #E95037;
+        }
+        &.c_btn01_yellow{
+            color: #FCD03E;
+        }
+        &.c_btn01_blue{
+            color: #8BD1F4;
+        }
+    }
+}
+
+
+
+
 .c_totop {
     position: fixed;
     right: 20px;

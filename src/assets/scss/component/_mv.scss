@@ -1,0 +1,43 @@
+@use "sass:math";
+@use "../global"as *;
+
+/*!
+component > MV
+------------------------------
+*/
+.c_mv{
+    background-color: #C0E4F9;
+    position: relative;
+    &__img{
+        img{
+            @include mq(md) {
+                min-height: 565px;
+                object-fit: cover;
+                object-position: center;
+            }
+        }
+    }
+    &__inner{
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        @include mq(md) {
+            padding-bottom: vw(118, 1300);
+        }
+    }
+    &__list{
+        display: grid;
+        margin: 0 auto;
+        @include mq(md) {
+            width: vw(778, 1300);
+            min-width: 576px;
+            grid-gap: vw(30, 1300);
+            grid-template-columns: 1fr 1fr 1fr;
+        }
+    }
+}

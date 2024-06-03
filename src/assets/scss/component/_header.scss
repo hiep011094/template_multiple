@@ -6,20 +6,66 @@ component > header
 ------------------------------
 */
 
+.c_header{    
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    background-color: #fff;
+    z-index: 10;
+    &__inner{
+        padding: vw(10) vw(70) vw(10) vw(12);
+        @include mq(md) {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: vw(32, 1300) vw(125, 1300) vw(30, 1300) vw(122, 1300);
+        }
+    }
+    &__content{
+        @include mq(md) {
+            display: flex;
+            align-items: center;            
+        }
+    }
+    &__logo{
+        width: vw(120);
+        @include mq(md) {
+            min-width: 110px;
+            width: vw(132, 1300);
+        }
+        .logo{
+            display: block;
+            width: 100%;
+        }
+    }
+    &__inner{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;        
+    }
+    &__btn{
+        @include mq(md) {
+            position: relative;
+            top: -2px;
+        }
+    }
+}
+
 .c_toggle{
     position: absolute;
-    top: 22px;
-    right: 20px;
+    top: vw(17);
+    right: vw(20);
     display: block;
-    width: 30px;
-    height: 30px;
+    width: vw(30);
+    height: vw(30);
     cursor: pointer;
-    @include mq(ld) {
+    @include mq(md) {
         display: none;
     }
     &::after{
         position: absolute;
-        bottom: 3px;
+        bottom: vw(3);
         left: 0;
         content: "";
         width: 100%;
@@ -29,7 +75,7 @@ component > header
     }
     &::before{
         position: absolute;
-        top: 3px;
+        top: vw(3);
         left:0;
         content: "";
         width: 100%;
@@ -50,10 +96,10 @@ component > header
     }
     &.active{
         &::before{
-            transform: translate(0,11px) rotate(45deg);
+            transform: translate(0,vw(11)) rotate(45deg);
         }
         &::after{
-            transform: translate(0,-11px) rotate(-45deg);
+            transform: translate(0,vw(-11)) rotate(-45deg);
         }
         .c_toggle__line{
             opacity: 0;

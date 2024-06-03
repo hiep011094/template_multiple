@@ -13,7 +13,7 @@ $(window).bind("load", function () {
 $(document).ready(function () {
     $('a[href^="#"]').click(function () {
         const p = $($(this).attr("href")).offset();
-        if ($(window).width() > 768) {
+        if ($(window).width() > 767) {
             $("html,body").animate(
                 {
                     scrollTop: p.top - 160,
@@ -91,7 +91,7 @@ $(document).ready(function () {
     });
 
     $(window).bind("load resize", function () {
-        if ($(window).width() > 1023) {
+        if ($(window).width() > 767) {
             $(".c_gnavi").removeAttr("style");
             $(".c_toggle").removeClass("active");
             // $(".c_menu__sub").removeAttr("style");

@@ -1,0 +1,98 @@
+@use "sass:math";
+@use "../global"as *;
+
+/*!
+component > Gnavi
+------------------------------
+*/
+
+.c_gnavi{
+    display: none;
+    position: fixed;
+    left: 0;
+    top: vw(63);
+    width: 100%;
+    height: calc(100vh - vw(63));
+    background-color: #fff;
+    @include mq(md) {
+        display: block;
+        top: 0;
+        height: auto;
+        width: auto;
+        position: relative;
+        padding-left: vw(31, 1300);
+    }
+    &__inner{
+        @include mq(md) {            
+            display: flex;
+            align-items: center;
+        }
+    }
+    &__link{
+        display: block;
+        width: 100%;   
+        padding: vw(10);       
+        @include mq(md) {
+            padding: 0;
+        } 
+        img{
+            height: vw(47);   
+            object-fit: contain;
+            object-position: center;
+            @include mq(md) {
+                height: auto;   
+            }
+        }
+    }
+    &__item{
+        width: 100%;
+        text-align: center;
+        border-bottom: 1px solid #F2F2F2;
+        @include mq(md) {
+            border: none;
+            width: auto;
+            margin-right: vw(20, 1300);
+        }
+        &:nth-child(1){        
+            border-top: 1px solid #F2F2F2;    
+            @include mq(md) {
+                border: none;
+                width: vw(93, 1300);
+                min-width: 77px;
+                margin-right: vw(36, 1300);
+            }
+            .c_gnavi__link img{
+                width: vw(93);
+                @include mq(md) {
+                    width: 100%;
+                }
+            }
+        }
+        &:nth-child(2){
+            @include mq(md) {
+                width: vw(137.4026, 1300);
+                min-width: 117px;
+                margin-right: vw(14, 1300);
+            }
+
+            .c_gnavi__link img{
+                width: vw(137.4026);
+                @include mq(md) {
+                    width: 100%;
+                }
+            }
+        }
+        &:nth-child(3){
+            @include mq(md) {
+                width: vw(141.6667, 1300);
+                min-width: 134px;
+            }
+            .c_gnavi__link img{
+                width: vw(141.6667);
+                @include mq(md) {
+                    width: 100%;
+                }
+            }
+        }
+    }
+}

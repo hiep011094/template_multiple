@@ -1,0 +1,39 @@
+@use "sass:math";
+@use "../global" as *;
+
+/*!
+component > Text
+------------------------------
+*/
+.c_txt14{
+    font-size: vw(12);
+    font-weight: 400;
+    letter-spacing: 0;
+    @include mq(md) {
+        font-size: vw(14, 1300);
+    }
+}
+
+.c_txt18{
+    font-size: vw(16);
+    font-weight: 400;
+    letter-spacing: 0;
+    @include mq(md) {
+        font-size: vw(18, 1300);
+    }
+}
+
+.c_txt20{
+    font-size: vw(16);
+    font-weight: 400;    
+    @include mq(md) {
+        font-size: vw(20, 1300);
+    }
+}
+.c_txt23{
+    font-size: vw(18);
+    font-weight: 400;    
+    @include mq(md) {
+        font-size: vw(23, 1300);
+    }
+}

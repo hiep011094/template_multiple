@@ -23,3 +23,8 @@ $baseWodth: 1600;
       #{$max-rems}
   );
 }
+
+@function vw($v, $w: 375) {
+  $vw: math.div($v, $w) * 100vw;
+  @return #{$vw};
+}

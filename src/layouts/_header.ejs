@@ -1,8 +1,35 @@
 <header class="c_header">
-    <div class="c_header__inner">     
-        <% if(file.data.page === 'top'){%><h1 class="logo"><% }else{ %><div class="logo"><% } %> 
-            sdfsdfsdfs
-        <% if(file.data.page === 'top'){%></h1><% }else{ %></div><% } %>
+    <div class="c_header__inner">  
+        <div class="c_header__content">
+            <% if(file.data.page === 'top'){%><h1 class="c_header__logo"><% }else{ %><div class="c_header__logo"><% } %> 
+                <a href="" class="logo">
+                    <img src="<%= assetsDir %>assets/images/common/img_logo_01.png" alt="">
+                </a>
+            <% if(file.data.page === 'top'){%></h1><% }else{ %></div><% } %>
+            <div class="c_gnavi">
+                <div class="c_gnavi__inner">
+                    <div class="c_gnavi__item">
+                        <a href="" class="c_gnavi__link">
+                            <img src="<%= assetsDir %>assets/images/common/img_logo_02.webp" alt="">
+                        </a>
+                    </div>
+                    <div class="c_gnavi__item">
+                        <a href="" class="c_gnavi__link">
+                            <img src="<%= assetsDir %>assets/images/common/img_logo_03.webp" alt="">
+                        </a>
+                    </div>
+                    <div class="c_gnavi__item">
+                        <a href="" class="c_gnavi__link">
+                            <img src="<%= assetsDir %>assets/images/common/img_logo_04.png" alt="">
+                        </a>
+                    </div>
+                </div>            
+            </div>
+        </div>  
+        
+        <div class="c_header__btn">
+            <a href="" class="c_btn">お問い合わせ</a>
+        </div>
     </div>
     <div class="c_toggle"><span class="c_toggle__line"></span></div>
 </header>
