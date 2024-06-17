@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 458.64 86.45">
+  <defs>
+    <style>
+      .cls-1 {
+        letter-spacing: -.02em;
+      }
+
+      .cls-1, .cls-2, .cls-3, .cls-4, .cls-5 {
+        fill: #e95037;
+        stroke: #e95037;
+      }
+
+      .cls-6 {
+        letter-spacing: .12em;
+      }
+
+      .cls-2 {
+        letter-spacing: -.07em;
+      }
+
+      .cls-3 {
+        letter-spacing: -.02em;
+      }
+
+      .cls-7, .cls-8, .cls-9, .cls-10, .cls-11, .cls-12 {
+        fill: #000;
+        stroke: #000;
+      }
+
+      .cls-7, .cls-13 {
+        letter-spacing: .14em;
+      }
+
+      .cls-8, .cls-4 {
+        letter-spacing: .09em;
+      }
+
+      .cls-14 {
+        letter-spacing: .14em;
+      }
+
+      .cls-15, .cls-9, .cls-5 {
+        letter-spacing: .15em;
+      }
+
+      .cls-16 {
+        font-family: PShueiMGoStd-B, 'PShueiMGoStd B-83pv-RKSJ-H';
+        font-size: 34px;
+        stroke-miterlimit: 10;
+      }
+
+      .cls-11 {
+        letter-spacing: -.17em;
+      }
+
+      .cls-17 {
+        letter-spacing: .13em;
+      }
+
+      .cls-12 {
+        letter-spacing: -.13em;
+      }
+    </style>
+  </defs>
+  <g id="img">
+    <text class="cls-16" transform="translate(96.21 30.42)"><tspan class="cls-10"><tspan class="cls-15" x="0" y="0">診</tspan><tspan class="cls-6" x="39.1" y="0">断</tspan><tspan class="cls-17" x="77.18" y="0">で</tspan><tspan class="cls-14" x="115.6" y="0">あ</tspan><tspan class="cls-15" x="154.36" y="0">なた</tspan><tspan class="cls-13" x="232.56" y="0">に</tspan></tspan><tspan class="cls-1" x="-97.41" y="44">ち</tspan><tspan class="cls-2" x="-64.09" y="44">ょ</tspan><tspan class="cls-3" x="-32.47" y="44">う</tspan><tspan class="cls-4" x=".85" y="44">ど</tspan><tspan class="cls-5" x="37.91" y="44">いい</tspan><tspan class="cls-9" x="116.11" y="44">製品</tspan><tspan class="cls-7" x="194.31" y="44">が</tspan><tspan class="cls-9" x="233.07" y="44">わ</tspan><tspan class="cls-8" x="272.17" y="44">か</tspan><tspan class="cls-11" x="309.23" y="44">る</tspan><tspan class="cls-12" x="337.45" y="44">！</tspan></text>
+  </g>
+</svg>

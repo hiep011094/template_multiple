@@ -5,17 +5,22 @@ foundation > base
 ------------------------------
 */
 body {
-    line-height: calc(32 / 16);
-    font-size: rem(16);
+    line-height: 1.8;
+    font-size: rem(14);
     font-weight: 500;
-    color: #333;
+    color: #000000;
     font-family: $font-family-base;
 
     @include mq(md) {
-        font-size: rem(18);
+        font-size: rem(16);
     }
 }
 
+main{
+    @include mq(md) {
+        margin-top: vw(110, 1300);
+    }
+}
 
 .body-wrapper {
     position: relative;

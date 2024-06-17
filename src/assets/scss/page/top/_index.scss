@@ -2,5 +2,292 @@
 @use "../../global" as *;
 
 .p_top{
-   
+    &01{
+        padding: vw(50) vw(20);
+        text-align: center;
+        @include mq(md) {
+            padding: vw(90, 1300) vw(40, 1300) vw(91, 1300) vw(40, 1300);
+        }  
+        .c_btn02{
+            margin-bottom: vw(15);
+            @include mq(md) {
+                margin-bottom: vw(23, 1300);
+            }
+        }
+        .title{
+            text-align: center;
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: vw(15);
+            @include mq(md) {
+                width: vw(596, 1300);
+                margin-bottom: vw(19, 1300);
+            }
+        } 
+        .img{
+            margin: 0 auto vw(15) auto;
+            width: 100%;
+            @include mq(md) {
+                margin: 0 auto vw(18, 1300) auto;
+                max-width: vw(915, 1300);
+                padding-right: clamped(0, 25, 768, 1300);
+            }
+        }
+    }
+    &02{
+        padding: vw(50) vw(20);
+        text-align: center;
+        background-color: #FCD03E;
+        @include mq(md) {
+            padding: vw(75, 1300) vw(40, 1300) vw(75, 1300) vw(40, 1300);
+        } 
+        .c_txt23{
+            text-align: center;
+            margin-bottom: vw(15);
+            @include mq(md) {
+                margin-bottom: vw(17, 1300);
+            }
+        } 
+        .c_btn02{
+            margin-bottom: vw(15);
+            @include mq(md) {
+                margin-bottom: vw(23, 1300);
+            }
+        }
+        .title{
+            margin: 0 auto;
+            @include mq(md) {
+                width: vw(457, 1300);
+            }
+        }
+        &__inner{
+            position: relative;
+            @include mq(md) {
+                padding: 0 vw(100, 1300) vw(20, 1300) ;
+                margin: 0 auto;
+                width: vw(678, 1300);
+            }
+            .img{
+                position: absolute;
+                right: 0;
+                top: 50%;
+                transform: translateY(-50%);
+                width: vw(135, 1300);
+            }
+        }
+    }
+    &03{
+        background-color: #C0E4F9;
+        position: relative;
+        &__inner{
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            padding: vw(100) vw(20);
+            @include mq(md) {
+                padding: vw(367, 1300) vw(40, 1300) vw(138, 1300) vw(40, 1300);
+            }
+        }
+        &__btn{
+            text-align: center;
+            padding-top: vw(15);
+            @include mq(md) {
+                padding-top: vw(20, 1300);
+            }
+        }
+        .title{
+            text-align: center;
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: vw(25);
+            @include mq(md) {
+                width: vw(488, 1300);
+                margin-bottom: vw(45, 1300);
+            }
+        } 
+        .c_txt18{
+            text-align: center;
+            line-height: math.div(24,18);
+            @include mq(md) {
+                margin-bottom: vw(10, 1300);
+            }
+        }
+        .c_btn{
+            font-size: vw(16);
+            padding: vw(15) vw(20);
+            @include mq(md) {
+                padding: vw(17, 1300) vw(35, 1300);
+                font-size: vw(18, 1300);
+            }
+        }
+    }
+}
+
+.c_products{
+    background-color: #FFFAE6;
+    text-align: center;
+    padding: vw(50) vw(20);
+    border-bottom: 1px solid #F2F2F2;
+    @include mq(md) {
+        padding: vw(73, 1300) vw(40, 1300) vw(87, 1300) vw(40, 1300);
+    }
+    .title{
+        position: relative;
+        color: #8BD1F4;
+        font-weight: 700;
+        display: inline-block;
+        margin-bottom: vw(15);
+        @include mq(md) {
+            padding: 0 vw(91, 1300);
+            margin-bottom: vw(22, 1300);
+        }
+        &__img{
+            display: inline-block;
+            @include mq(md) {
+                width: vw(467, 1300);
+                margin-bottom: vw(5, 1300);
+            }
+        }
+        &__text{
+            display: block;
+            font-size: vw(12);
+            letter-spacing: 0;
+            font-weight: 700;
+            line-height: math.div(22,14);
+            @include mq(md) {
+                font-size: vw(14, 1300);
+            }
+        }
+        &__people{
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: vw(40);
+            display: inline-block;
+            @include mq(md) {
+                top: calc(50% - vw(18, 1300));
+                width: vw(70, 1300); 
+            }
+        }
+    }
+    &__list{
+        margin-left: auto;
+        margin-right: auto;
+        @include mq(md) {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            max-width: vw(1100, 1300);
+            grid-gap: vw(36, 1300);
+            
+        }
+        .icon{
+            width: vw(60);
+            height: vw(60);
+            display: inline-block;
+            position: relative;
+            @include mq(md) {
+                width: vw(80, 1300);
+                height: vw(80, 1300);
+                margin-bottom: vw(-2, 1300);
+            }
+            img{
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                left: 0;
+                top: 0
+            }
+            &__main{
+                z-index: 2;
+                transition: 0.5s;
+            }
+            &__hover{
+                z-index: 1;
+            }
+        }
+        .logo{
+            display: flex;
+            align-items: center;
+
+            margin-left: auto;
+            margin-right: auto;
+            position: relative;
+            margin-bottom: vw(4);
+            @include mq(md) {
+                height: vw(50, 1300);
+                margin-bottom: vw(4, 1300);
+            }
+            &_01{
+                width: vw(75);
+                @include mq(md) {
+                    width: vw(97, 1300);     
+                    left: -1px;               
+                }
+            }
+            &_02{
+                width: vw(100);
+                @include mq(md) {
+                    width: vw(147, 1300);
+                    left: 4px; 
+                }
+            }
+            &_03{
+                width: vw(120);
+                @include mq(md) {
+                    width: vw(160, 1300);
+                    left: 2px;
+                }
+            }
+        }
+        &__item{
+            display: block;
+            background-color: #FFFFFF;
+            border: 2px solid #F2F2F2;
+            border-radius: 10px;
+            padding: vw(20) vw(20);
+            @include mq(md) {
+                padding: vw(25, 1300) vw(25, 1300) vw(45, 1300) vw(25, 1300);
+                border-radius: 25px;
+                border: 3px solid #F2F2F2;
+            }
+            .c_txt20{
+                margin-bottom: vw(11);
+                @include mq(md) {
+                    margin-bottom: vw(11, 1300);
+                }
+            }
+            .c_txt14{
+                line-height: math.div(22,14);
+                margin-bottom: vw(14);
+                @include mq(md) {
+                    margin-bottom: vw(16, 1300);
+                }
+            }
+            .c_btn{
+                width: vw(140);
+                transition: 0.5s;
+                @include mq(md) {
+                    width: vw(200, 1300);
+                }
+            }
+        }
+        a.c_products__list__item:hover{
+            @include mq(md) {
+                box-shadow: 0 5px 16px rgba($color: #333, $alpha: .35);
+            }
+            .icon__main{
+                @include mq(md) {
+                    opacity: 0;
+                }
+            }
+            .c_btn{
+                @include mq(md) {
+                    opacity: 0.8;
+                }
+            }
+        }
+    }
 }
