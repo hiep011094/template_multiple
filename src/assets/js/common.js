@@ -46,38 +46,26 @@ $(document).ready(function () {
     //Anchor scroll
     $(".c_toggle").click(function () {
         if ($(this).hasClass("active")) {
+            removeFixedBodyModal();
             $(".c_toggle").removeClass("active");
             $(".c_gnavi").stop().slideToggle();
         } else {
+            addFixedBodyModal()
             $(this).toggleClass("active");
             $(".c_gnavi").stop().slideToggle("fast");
         }
     });
 
-    // $(".c_gnavi__list__link").click(function () {
-    //     $(".c_toggle").removeClass("active");
-    //     $(".c_gnavi").stop().slideToggle();
-    // });
-
-    //Gnavi
-    // if (!$('.over').hasClass("flag")) {
-    //     $('.over').hover(function () {            
-    //         $(this).find(".c_menu__sub").stop().slideDown();
-    //     }, function () {
-    //         $(this).find(".c_menu__sub").stop().slideUp();
-    //     });
-    // }
-    // $(".over").click(function () {
-    //     if ($(this).hasClass("flag")) {
-    //         if ($(this).hasClass("active")) {
-    //             $(this).find(".c_menu__sub").stop().slideUp();
-    //             $(this).removeClass("active");
-    //         } else {
-    //             $(this).find(".c_menu__sub").stop().slideDown();
-    //             $(this).addClass("active");
-    //         }
-    //     }
-    // });
+    function addFixedBodyModal() {
+        scroll_pos1 = $(window).scrollTop();
+        $('body')
+            .addClass('overflow_modal')
+            .css({ top: -scroll_pos1 + 'px' });
+    }
+    function removeFixedBodyModal() {
+        $('body').removeClass('overflow_modal').css({ top: '' });
+        $(window).scrollTop(scroll_pos1);
+    }
 
     // scroll
     $(window).scroll(function () {
@@ -94,8 +82,6 @@ $(document).ready(function () {
         if ($(window).width() > 767) {
             $(".c_gnavi").removeAttr("style");
             $(".c_toggle").removeClass("active");
-            // $(".c_menu__sub").removeAttr("style");
-            // $(".over").removeClass("flag");
         } else {
             $(".over").addClass("flag");
         }
@@ -108,6 +94,8 @@ $(document).ready(function () {
             $(".c_header").removeClass("active");
         }
     });
+
+    
 });
 
 
