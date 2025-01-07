@@ -88,16 +88,16 @@ export function scripts() {
     
 }
 
-export function css() {
+export function vender() {
     if(path_xampp){
         return gulp
-        .src('./src/assets/css/**/*.css')
-        .pipe(gulp.dest('./dits/assets/css'))
+        .src('./src/assets/vender/**/*.+(php|png|jpg|scss|css|js)')
+        .pipe(gulp.dest('./dits/assets/vender'))
         .pipe(gulp.dest(path_xampp + '/assets/css'));
     }else{
         return gulp
-        .src('./src/assets/css/**/*.css')
-        .pipe(gulp.dest('./dits/assets/css'));
+        .src('./src/assets/vender/**/*.+(php|png|jpg|scss|css|js)')
+        .pipe(gulp.dest('./dits/assets/vender'));
     }
     
 }
@@ -192,7 +192,7 @@ export function watch() {
     });
 
     gulp.watch('./src/assets/scss/**/*.scss', gulp.parallel(style));
-    gulp.watch('./src/assets/css/**/*.css', gulp.parallel(css));
+    gulp.watch('./src/assets/vender/**', vender);
     gulp.watch('./src/assets/js/**/*.js', gulp.parallel(scripts));
     gulp.watch('./src/assets/images/**', images);
     gulp.watch('./src/assets/videos/**', videos);
@@ -229,7 +229,7 @@ function post_css() {
 
 exports.build = gulp.series(
     clean,
-    gulp.parallel(style, css, scripts, images, videos, php_wp, templates)
+    gulp.parallel(style, vender, scripts, images, videos, php_wp, templates)
 );
 exports.watch = watch;
 exports.post_css = post_css;

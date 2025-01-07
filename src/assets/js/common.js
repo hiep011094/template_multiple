@@ -1,3 +1,14 @@
+let scroll_pos1 = 0;
+function addFixedBodyModal() {
+    scroll_pos1 = $(window).scrollTop();
+    $('body')
+        .addClass('overflow_modal')
+        .css({ top: -scroll_pos1 + 'px' });
+}
+function removeFixedBodyModal() {
+    $('body').removeClass('overflow_modal').css({ top: '' });
+    $(window).scrollTop(scroll_pos1);
+}
 $(window).bind("load", function () {
     setTimeout(() => {
         $('html').removeClass('is_loadding')
@@ -55,17 +66,6 @@ $(document).ready(function () {
             $(".c_gnavi").stop().slideToggle("fast");
         }
     });
-
-    function addFixedBodyModal() {
-        scroll_pos1 = $(window).scrollTop();
-        $('body')
-            .addClass('overflow_modal')
-            .css({ top: -scroll_pos1 + 'px' });
-    }
-    function removeFixedBodyModal() {
-        $('body').removeClass('overflow_modal').css({ top: '' });
-        $(window).scrollTop(scroll_pos1);
-    }
 
     // scroll
     $(window).scroll(function () {
