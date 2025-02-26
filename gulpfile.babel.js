@@ -73,6 +73,21 @@ export function style() {
     
 }
 
+//scss
+export function scss() {
+    if(path_xampp){
+        return gulp
+        .src('./src/assets/scss/**/*.scss')
+        .pipe(gulp.dest('./dits/assets/scss'))
+        .pipe(gulp.dest(path_xampp + '/assets/scss'));
+    }else{
+        return gulp
+        .src('./src/assets/scss/**/*.scss')
+        .pipe(gulp.dest('./dits/assets/scss'));
+    }
+    
+}
+
 //JS
 export function scripts() {
     if(path_xampp){
@@ -193,6 +208,7 @@ export function watch() {
 
     gulp.watch('./src/assets/scss/**/*.scss', gulp.parallel(style));
     gulp.watch('./src/assets/vender/**', vender);
+    gulp.watch('./src/assets/scss/**', scss);
     gulp.watch('./src/assets/js/**/*.js', gulp.parallel(scripts));
     gulp.watch('./src/assets/images/**', images);
     gulp.watch('./src/assets/videos/**', videos);
@@ -229,7 +245,7 @@ function post_css() {
 
 exports.build = gulp.series(
     clean,
-    gulp.parallel(style, vender, scripts, images, videos, php_wp, templates)
+    gulp.parallel(style, scss, vender, scripts, images, videos, php_wp, templates)
 );
 exports.watch = watch;
 exports.post_css = post_css;
