@@ -19,7 +19,7 @@ const path = {
     ejs: {
         layoutDir: `${__dirname}/src/layouts`,
         src: ['./src/**/*.ejs', '!./src/**/_*.ejs'],
-        dist: './dits/',
+        dist: './public/',
     },
     json: {
         package: './package.json',
@@ -40,7 +40,7 @@ jsonData.newsListJson = require(path.json.newsList);
 
 // Clean assets
 function clean() {
-    return del(['./dits/assets/']);
+    return del(['./public/assets/']);
 }
 
 export function style() {
@@ -55,7 +55,7 @@ export function style() {
         )
         .pipe(sourcemaps.write('.'))
         .pipe(cache('linting'))
-        .pipe(gulp.dest('./dits/assets/css'))
+        .pipe(gulp.dest('./public/assets/css'))
         .pipe(gulp.dest(path_xampp + '/assets/css'));
     }else{
         return gulp
@@ -68,7 +68,7 @@ export function style() {
         )
         .pipe(sourcemaps.write('.'))
         .pipe(cache('linting'))
-        .pipe(gulp.dest('./dits/assets/css'));
+        .pipe(gulp.dest('./public/assets/css'));
     }
     
 }
@@ -78,12 +78,12 @@ export function scss() {
     if(path_xampp){
         return gulp
         .src('./src/assets/scss/**/*.scss')
-        .pipe(gulp.dest('./dits/assets/scss'))
+        .pipe(gulp.dest('./public/assets/scss'))
         .pipe(gulp.dest(path_xampp + '/assets/scss'));
     }else{
         return gulp
         .src('./src/assets/scss/**/*.scss')
-        .pipe(gulp.dest('./dits/assets/scss'));
+        .pipe(gulp.dest('./public/assets/scss'));
     }
     
 }
@@ -93,12 +93,12 @@ export function scripts() {
     if(path_xampp){
         return gulp
         .src('./src/assets/js/**/*.js')
-        .pipe(gulp.dest('./dits/assets/js'))
+        .pipe(gulp.dest('./public/assets/js'))
         .pipe(gulp.dest(path_xampp + '/assets/js'));
     }else{
         return gulp
         .src('./src/assets/js/**/*.js')
-        .pipe(gulp.dest('./dits/assets/js'));
+        .pipe(gulp.dest('./public/assets/js'));
     }
     
 }
@@ -107,12 +107,12 @@ export function vender() {
     if(path_xampp){
         return gulp
         .src('./src/assets/vender/**/*.+(php|png|jpg|scss|css|js)')
-        .pipe(gulp.dest('./dits/assets/vender'))
+        .pipe(gulp.dest('./public/assets/vender'))
         .pipe(gulp.dest(path_xampp + '/assets/css'));
     }else{
         return gulp
         .src('./src/assets/vender/**/*.+(php|png|jpg|scss|css|js)')
-        .pipe(gulp.dest('./dits/assets/vender'));
+        .pipe(gulp.dest('./public/assets/vender'));
     }
     
 }
@@ -122,12 +122,12 @@ export function images() {
     if(path_xampp){
         return gulp
         .src('./src/assets/images/**/*.+(jpg|jpeg|png|gif|webp|svg|ico)')
-        .pipe(gulp.dest('./dits/assets/images'))
+        .pipe(gulp.dest('./public/assets/images'))
         .pipe(gulp.dest(path_xampp + '/assets/images'));
     }else{
         return gulp
         .src('./src/assets/images/**/*.+(jpg|jpeg|png|gif|webp|svg|ico)')
-        .pipe(gulp.dest('./dits/assets/images'));
+        .pipe(gulp.dest('./public/assets/images'));
     }
     
 }
@@ -137,12 +137,12 @@ export function videos() {
     if(path_xampp){
         return gulp
         .src('./src/assets/videos/**/*.+(mp4|webm|ogg)')
-        .pipe(gulp.dest('./dits/assets/videos'))
+        .pipe(gulp.dest('./public/assets/videos'))
         .pipe(gulp.dest(path_xampp + '/assets/videos'));
     }else{
         return gulp
         .src('./src/assets/videos/**/*.+(mp4|webm|ogg)')
-        .pipe(gulp.dest('./dits/assets/videos'));
+        .pipe(gulp.dest('./public/assets/videos'));
     }
     
 }
@@ -152,12 +152,12 @@ export function php_wp() {
     if(path_xampp){
         return gulp
         .src('./src/php_wp/**/*.+(php|png|jpg|css|js)')
-        .pipe(gulp.dest('./dits/php_wp'))
+        .pipe(gulp.dest('./public/php_wp'))
         .pipe(gulp.dest(path_xampp));
     }else{
         return gulp
         .src('./src/php_wp/**/*.+(php|png|jpg|css|js)')
-        .pipe(gulp.dest('./dits/php_wp'));
+        .pipe(gulp.dest('./public/php_wp'));
     }
     
 }
@@ -201,7 +201,7 @@ export function watch() {
     browserSync.init({
         watch: true,
         server: {
-            baseDir: './dits',
+            baseDir: './public',
         },
         port: 8080,
     });
@@ -214,7 +214,7 @@ export function watch() {
     gulp.watch('./src/assets/videos/**', videos);
     gulp.watch('./src/php_wp/**', php_wp);
     gulp.watch('./src/**/*.ejs', templates);
-    gulp.watch(['./dits/*.html', './src/assets/sass/**/*.scss']).on(
+    gulp.watch(['./public/*.html', './src/assets/sass/**/*.scss']).on(
         'change',
         browserSync.reload
     );
@@ -240,7 +240,7 @@ function post_css() {
             })
         )
         .pipe(postcss(processors))
-        .pipe(gulp.dest('./dits/assets/css'));
+        .pipe(gulp.dest('./public/assets/css'));
 }
 
 exports.build = gulp.series(
