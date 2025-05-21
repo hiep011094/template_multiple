@@ -1,7 +1,10 @@
 @use "sass:math";
 @use "../global" as *;
-
 /*!
 component > Texts
 ------------------------------
 */
+
+.c_txt15{
+    @extend %fz-15;
+}
