@@ -7,29 +7,5 @@ component > footer
 */
 
 .c_footer{
-    background-color: #fff;
-    padding: vw(20) vw(20);
-    @include mq(md) {
-        padding: vw(23, 1300) vw(40, 1300) vw(25, 1300) vw(40, 1300);
-    }
-    .logo{
-        display: block;
-        margin-left: auto;
-        margin-right: auto;
-        width: vw(100);
-        position: relative;
-        margin-bottom: vw(5);
-        @include mq(md) {
-            left: clamped(0, 2, 768, 1300);
-            width: vw(142, 1300);
-            margin-bottom: vw(5, 1300);
-        }
-    }
-    .coppy{
-        font-size: 10x;
-        font-weight: 400;
-        letter-spacing: 0;
-        line-height: 1.6;
-        text-align: center;
-    }
+    
 }

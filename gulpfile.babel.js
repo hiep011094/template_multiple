@@ -68,7 +68,8 @@ export function style() {
         )
         .pipe(sourcemaps.write('.'))
         .pipe(cache('linting'))
-        .pipe(gulp.dest('./public/assets/css'));
+        .pipe(gulp.dest('./public/assets/css'))
+        .pipe(gulp.dest('./public/theme_wp/assets/css'));
     }
     
 }
@@ -98,7 +99,8 @@ export function scripts() {
     }else{
         return gulp
         .src('./src/assets/js/**/*.js')
-        .pipe(gulp.dest('./public/assets/js'));
+        .pipe(gulp.dest('./public/assets/js'))
+        .pipe(gulp.dest('./public/theme_wp/assets/js'));
     }
     
 }
@@ -112,7 +114,8 @@ export function vender() {
     }else{
         return gulp
         .src('./src/assets/vender/**/*.+(php|png|jpg|scss|css|js)')
-        .pipe(gulp.dest('./public/assets/vender'));
+        .pipe(gulp.dest('./public/assets/vender'))
+        .pipe(gulp.dest('./public/theme_wp/assets/vender'));
     }
     
 }
@@ -127,7 +130,8 @@ export function images() {
     }else{
         return gulp
         .src('./src/assets/images/**/*.+(jpg|jpeg|png|gif|webp|svg|ico)')
-        .pipe(gulp.dest('./public/assets/images'));
+        .pipe(gulp.dest('./public/assets/images'))
+        .pipe(gulp.dest('./public/theme_wp/assets/images'));
     }
     
 }
@@ -142,22 +146,23 @@ export function videos() {
     }else{
         return gulp
         .src('./src/assets/videos/**/*.+(mp4|webm|ogg)')
-        .pipe(gulp.dest('./public/assets/videos'));
+        .pipe(gulp.dest('./public/assets/videos'))
+        .pipe(gulp.dest('./public/theme_wp/assets/videos'));
     }
     
 }
 
 //videos
-export function php_wp() {
+export function theme_wp() {
     if(path_xampp){
         return gulp
-        .src('./src/php_wp/**/*.+(php|png|jpg|css|js)')
-        .pipe(gulp.dest('./public/php_wp'))
+        .src('./src/theme_wp/**/*.+(php|png|jpg|css|js)')
+        .pipe(gulp.dest('./public/theme_wp'))
         .pipe(gulp.dest(path_xampp));
     }else{
         return gulp
-        .src('./src/php_wp/**/*.+(php|png|jpg|css|js)')
-        .pipe(gulp.dest('./public/php_wp'));
+        .src('./src/theme_wp/**/*.+(php|png|jpg|css|js)')
+        .pipe(gulp.dest('./public/theme_wp'));
     }
     
 }
@@ -208,11 +213,10 @@ export function watch() {
 
     gulp.watch('./src/assets/scss/**/*.scss', gulp.parallel(style));
     gulp.watch('./src/assets/vender/**', vender);
-    // gulp.watch('./src/assets/scss/**', scss);
     gulp.watch('./src/assets/js/**/*.js', gulp.parallel(scripts));
     gulp.watch('./src/assets/images/**', images);
     gulp.watch('./src/assets/videos/**', videos);
-    gulp.watch('./src/php_wp/**', php_wp);
+    gulp.watch('./src/theme_wp/**', theme_wp);
     gulp.watch('./src/**/*.ejs', templates);
     gulp.watch(['./public/*.html', './src/assets/sass/**/*.scss']).on(
         'change',
@@ -221,7 +225,6 @@ export function watch() {
 }
 
 function post_css() {
-    // console.log(sass);
     let processors = [
         sortMediaQueries({
             sort: 'mobile-first',
@@ -245,7 +248,7 @@ function post_css() {
 
 exports.build = gulp.series(
     clean,
-    gulp.parallel(style, vender, scripts, images, videos, php_wp, templates)
+    gulp.parallel(style, vender, scripts, images, videos, theme_wp, templates)
 );
 exports.watch = watch;
 exports.post_css = post_css;

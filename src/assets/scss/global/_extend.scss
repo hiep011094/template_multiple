@@ -8,6 +8,13 @@
     font-size: rem(10);
 }
 
+%fz-11 {
+    font-size: rem(10);
+    @include mq(md) {
+        font-size: clamped(10, 11, 768, 1600);
+    }
+}
+
 %fz-12 {
     font-size: rem(10);
     @include mq("md") {
@@ -51,9 +58,9 @@
 }
 
 %fz-18 {
-    font-size: rem(14);
+    font-size: rem(16);
     @include mq("md") {
-        font-size: clamped(14, 18, 768, 1600);
+        font-size: clamped(16, 18, 768, 1600);
     }
 }
 
@@ -79,9 +86,9 @@
 }
 
 %fz-22 {
-    font-size: rem(16);
+    font-size: rem(18);
     @include mq("md") {
-        font-size: clamped(16, 22, 768, 1600);
+        font-size: clamped(18, 22, 768, 1600);
     }
 }
 
@@ -93,16 +100,16 @@
 }
 
 %fz-24 {
-    font-size: rem(18);
+    font-size: rem(20);
     @include mq("md") {
-        font-size: clamped(18, 24, 768, 1600);
+        font-size: clamped(20, 24, 768, 1600);
     }
 }
 
 %fz-25 {
-    font-size: rem(18);
+    font-size: rem(20);
     @include mq("md") {
-        font-size: clamped(18, 25, 768, 1600);
+        font-size: clamped(20, 25, 768, 1600);
     }
 }
 
@@ -135,9 +142,9 @@
 }
 
 %fz-30 {
-    font-size: rem(22);
+    font-size: rem(24);
     @include mq("md") {
-        font-size: clamped(22, 30, 768, 1600);
+        font-size: clamped(24, 30, 768, 1600);
     }
 }
 

@@ -5,12 +5,13 @@ foundation > base
 ------------------------------
 */
 body {
-    line-height: 1.8;
+    line-height: 2;
     font-size: rem(14);
-    font-weight: 500;
-    color: #000000;
+    font-weight: 400;
+    color: #C1C2C4;
     font-family: $font-family-base;
-
+    letter-spacing: 0.04em;
+    background-color: #050B11;
     @include mq(md) {
         font-size: rem(16);
     }
