@@ -82,6 +82,8 @@ $(document).ready(function () {
         if ($(window).width() > 767) {
             $(".c_gnavi").removeAttr("style");
             $(".c_toggle").removeClass("active");
+            $('body').removeClass('overflow_modal').css({ top: '' });
+            $(window).scrollTop(scroll_pos1);
         } else {
             $(".over").addClass("flag");
         }
