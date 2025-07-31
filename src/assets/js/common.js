@@ -79,6 +79,7 @@ $(document).ready(function () {
     });
 
     $(window).bind("load resize", function () {
+        scroll_pos1 = $(window).scrollTop();
         if ($(window).width() > 767) {
             $(".c_gnavi").removeAttr("style");
             $(".c_toggle").removeClass("active");
