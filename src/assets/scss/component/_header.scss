@@ -8,34 +8,60 @@ component > header
 
 .c_toggle{
     position: absolute;
-    top: vw(17);
-    right: vw(20);
+    right: 25px;
+    top: 19px;
     display: block;
-    width: vw(30);
-    height: vw(30);
+    width: 35px;
+    height: 35px;
     cursor: pointer;
     @include mq(md) {
-        display: none;
+        top: clamped(15, 27, 768, 1280);
+        right: clamped(30, 50, 768, 1280);
+        width: clamped(40, 56, 768, 1280);
+        height: clamped( 40, 56, 768, 1280);
     }
     &::after{
         position: absolute;
-        bottom: vw(3);
+        bottom: 5px;
         left: 0;
         content: "";
         width: 100%;
         height: 2px;
-        background: #333;      
+        background: #fff;      
         transition: 0.5s;  
+        @include mq(md) {
+            bottom: 10px;
+            height: clamped( 2, 4, 768, 1280);
+        }
     }
     &::before{
         position: absolute;
-        top: vw(3);
+        top: 5px;
         left:0;
         content: "";
         width: 100%;
         height: 2px;
-        background: #333;      
+        background: #fff;      
         transition: 0.5s;  
+        @include mq(md) {
+            top: 10px;
+            height: clamped( 2, 4, 768, 1280);
+        }
+    }
+    &__txt{
+        font-family: $font-family-poppins;
+        font-size: rem(11);
+        font-weight: 700;
+        color: var(--white);
+        line-height: 1;
+        letter-spacing: 0.08em;
+        display: flex;
+        justify-content: center;
+        padding-top: 40px;
+        @include mq(md) {
+            font-size: clamped( 13, 18, 768, 1280);
+            padding-top: clamped(40, 57, 768, 1280);
+        }
     }
     &__line{
         position: absolute;
@@ -44,16 +70,25 @@ component > header
         display: block;
         width: 100%;
         height: 2px;
-        background: #333;
+        background: #fff;
         transform: translate(-50%,-50%);
         transition: 0.5s;
+        @include mq(md) {
+            height: clamped( 2, 4, 768, 1280);
+        }
     }
     &.active{
         &::before{
-            transform: translate(0,vw(11)) rotate(45deg);
+            transform: translate( 0 , 12px) rotate(45deg);
+            @include mq(md) {
+                transform: translate( 0 , clamped(9, 16, 768, 1280)) rotate(45deg);
+            }
         }
         &::after{
-            transform: translate(0,vw(-11)) rotate(-45deg);
+            transform: translate( 0 , -11px) rotate(-45deg);
+            @include mq(md) {
+                transform: translate( 0 , clamped( -16, -9, 1280, 768)) rotate(-45deg);
+            }
         }
         .c_toggle__line{
             opacity: 0;

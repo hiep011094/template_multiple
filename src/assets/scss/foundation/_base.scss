@@ -4,14 +4,19 @@
 foundation > base
 ------------------------------
 */
+:root{
+    --black: #333333;
+    --white: #fff;
+}
+
 body {
     line-height: 2;
     font-size: rem(14);
-    font-weight: 400;
-    color: #C1C2C4;
+    font-weight: 500;
+    color: var(--black);
     font-family: $font-family-base;
-    letter-spacing: 0.04em;
-    background-color: #050B11;
+    letter-spacing: 0;
+    background-color: var(--white);
     @include mq(md) {
         font-size: rem(16);
     }
@@ -22,12 +27,6 @@ body.overflow_modal {
     width: 100%;
     height: 100%;
     overflow-y: scroll;
-}
-
-main{
-    @include mq(md) {
-        margin-top: vw(110, 1300);
-    }
 }
 
 .body-wrapper {

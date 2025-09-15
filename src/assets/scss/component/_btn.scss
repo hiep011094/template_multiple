@@ -22,9 +22,9 @@ component > btn
     letter-spacing: 0.1em;
     line-height: 1;
     z-index: 9;
-    background: #333;
+    background: var(--blue1);
     border-radius: 40px;
-    border: 2px solid #fff;
+    border: 2px solid var(--white);
 
     @include mq(md) {
         right: 60px;
@@ -32,7 +32,7 @@ component > btn
         width: 60px;
         height: 60px;
         border-radius: 60px;
-        border: 3px solid #fff;
+        border: 3px solid var(--white);
     }
     &::before {
         position: absolute;
@@ -41,7 +41,7 @@ component > btn
         content: "";
         width: 12px;
         height: 3px;
-        background: #fff;
+        background: var(--white);
         transform: translateY(-50%) rotate(-45deg);
         pointer-events: none;
         @include mq(md) {
@@ -58,7 +58,7 @@ component > btn
         height: 3px;
         transform: translateY(-50%) rotate(45deg);
         pointer-events: none;
-        background: #fff;
+        background: var(--white);
         @include mq(md) {
             right: 15px;
             width: 15px;
@@ -66,6 +66,8 @@ component > btn
     }
 
     &:hover {
-        transform: translateY(-20px) !important;
+        @include mq(md) {
+            transform: translateY(-20px) !important;
+        }
     }
 }

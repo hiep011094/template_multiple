@@ -5,12 +5,12 @@ services:
       - "8000:80"
     environment:
       WORDPRESS_DB_HOST: db
-      WORDPRESS_DB_NAME: wp_demo
+      WORDPRESS_DB_NAME: web_jline_tachibanarecruit
       WORDPRESS_DB_USER: jline
       WORDPRESS_DB_PASSWORD: jl123
       WORDPRESS_LOCALE: ja_JP
     volumes:
-      - "D:/DATA/hiep_learning/demo/src/theme_wp/wp-content:/var/www/html/wp-content"
+      - "D:/DATA/Hiep/tachibana_recruit_web/src/theme_wp/wp-content:/var/www/html/wp-content"
     depends_on:
       - db
 
@@ -18,12 +18,12 @@ services:
     image: mariadb:10.6
     restart: always
     environment:
-      MYSQL_DATABASE: wp_demo
+      MYSQL_DATABASE: web_jline_tachibanarecruit
       MYSQL_USER: jline
       MYSQL_PASSWORD: jl123
       MYSQL_ROOT_PASSWORD: jl123
     volumes:
-      - "D:/DATA/hiep_learning/demo/src/theme_wp/db-data:/var/lib/mysql"
+      - "D:/DATA/Hiep/tachibana_recruit_web/src/theme_wp/db-data:/var/lib/mysql"
 
   phpmyadmin:
     image: phpmyadmin/phpmyadmin

@@ -1,36 +1,20 @@
 <header class="c_header">
     <div class="c_header__inner">  
-        <div class="c_header__content">
-            <% if(file.data.page === 'top'){%><h1 class="c_header__logo"><% }else{ %><div class="c_header__logo"><% } %> 
-                <a href="" class="logo">
-                    <img src="<%= assetsDir %>assets/images/common/img_logo_01.png" alt="">
-                </a>
-            <% if(file.data.page === 'top'){%></h1><% }else{ %></div><% } %>
-            <div class="c_gnavi">
-                <div class="c_gnavi__inner">
-                    <div class="c_gnavi__item">
-                        <a href="" class="c_gnavi__link">
-                            <img src="<%= assetsDir %>assets/images/common/img_logo_02.webp" alt="">
-                        </a>
-                    </div>
-                    <div class="c_gnavi__item">
-                        <a href="" class="c_gnavi__link">
-                            <img src="<%= assetsDir %>assets/images/common/img_logo_03.webp" alt="">
-                        </a>
-                    </div>
-                    <div class="c_gnavi__item">
-                        <a href="" class="c_gnavi__link">
-                            <img src="<%= assetsDir %>assets/images/common/img_logo_04.png" alt="">
-                        </a>
-                    </div>
-                </div>            
-            </div>
-        </div>  
+        <% if(file.data.page === 'top'){%><h1 class="c_header__logo"><% }else{ %><div class="c_header__logo"><% } %> 
+            <a href="" class="logo">
+                <img src="<%= assetsDir %>assets/images/common/img_logo.svg" alt="">
+            </a>
+            <span class="caption">SITE</span>
+        <% if(file.data.page === 'top'){%></h1><% }else{ %></div><% } %> 
         
         <div class="c_header__btn">
-            <a href="" class="c_btn">お問い合わせ</a>
+            <a href="" class="c_btn">新卒採用</a>
+             <a href="" class="c_btn c_btn_orange">中途採用</a>
         </div>
     </div>
-    <div class="c_toggle"><span class="c_toggle__line"></span></div>
+    <div class="c_toggle">
+        <span class="c_toggle__line"></span>
+        <span class="c_toggle__txt">MENU</span>
+    </div>
 </header>
 <!--▲ Content area ▲-->

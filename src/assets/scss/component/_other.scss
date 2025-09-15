@@ -21,7 +21,7 @@ component > Other
     top: 0;
     width: 100%;
     height: 100%;
-    background: #61a07f;
+    background: var(--blue);
     z-index: 100;
     opacity: 0;
     pointer-events: none;
@@ -174,8 +174,47 @@ component > Other
             }
         }
     }
+}
 
 
+.p_404{
+    &__inner{
+        background-color: var(--blue1);
+        padding: 50px 0 100px ;
+        @include mq(md) {
+            padding: clamped( 100, 140, 768, 1280) 0 clamped( 130, 173, 768, 1280) 0;
+            margin-bottom: -22px;
+        }
+    }
+    &__btn{
+        padding: 40px 0 0 0;
+        @include mq(md) {
+            padding: 50px 0 50px 0;
+        }
+    }
+}
 
+.p_thanks{
+    &__inner{
+        background-color: var(--blue1);
+        padding: 50px 0 100px ;
+        @include mq(md) {
+            text-align: center;
+            padding: clamped( 100, 140, 768, 1280) 0 clamped( 130, 173, 768, 1280) 0;
+            margin-bottom: -22px;
+        }
+        .c_ttl30{
+            margin-bottom: 25px;
+            @include mq(md) {
+                margin-bottom: 40px;
+            }
+        }
+    }
+    &__btn{
+        padding: 40px 0 0 0;
+        @include mq(md) {
+            padding: 50px 0 50px 0;
+        }
+    }
 }
 
