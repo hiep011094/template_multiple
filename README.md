@@ -1,7 +1,7 @@
 1. Setting "npm i"
 2. Start "npm start"
 
-docker-compose down -d
+docker-compose down -v
 docker-compose up -d
 
 
