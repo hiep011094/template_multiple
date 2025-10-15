@@ -75,7 +75,7 @@ function copyTo(src, ...dests) {
 function style() {
   const dests = [
     './public/assets/css',
-    `./src//wp-content/themes/${rootFolder}/assets/css`,
+    `./src/wp-bridge/wp-content/themes/${rootFolder}/assets/css`,
     path_xampp ? `${path_xampp}/assets/css` : null
   ];
   const processors = [
@@ -96,33 +96,33 @@ function style() {
 
 // SCSS
 function scss() {
-  const dests = ['./public/assets/scss',`./src//wp-content/themes/${rootFolder}/assets/scss`].filter(Boolean);;
+  const dests = ['./public/assets/scss',`./src/wp-bridge/wp-content/themes/${rootFolder}/assets/scss`].filter(Boolean);;
   if (path_xampp) dests.push(`${path_xampp}/assets/scss`);
   return copyTo('./src/assets/scss/**/*.scss', ...dests);
 }
 
 // JS
 function scripts() {
-  const dests = ['./public/assets/js',`./src//wp-content/themes/${rootFolder}/assets/js`, path_xampp ? `${path_xampp}/assets/js` : null].filter(Boolean);;
+  const dests = ['./public/assets/js',`./src/wp-bridge/wp-content/themes/${rootFolder}/assets/js`, path_xampp ? `${path_xampp}/assets/js` : null].filter(Boolean);;
   return copyTo('./src/assets/js/**/*.js', ...dests);
 }
 
 // Vender
 function vender() {
-  const dests = ['./public/assets/vender',`./src//wp-content/themes/${rootFolder}/assets/vender`, path_xampp ? `${path_xampp}/assets/vender` : null].filter(Boolean);
+  const dests = ['./public/assets/vender',`./src/wp-bridge/wp-content/themes/${rootFolder}/assets/vender`, path_xampp ? `${path_xampp}/assets/vender` : null].filter(Boolean);
   return copyTo('./src/assets/vender/**/*.+(php|png|jpg|scss|css|js)', ...dests);
 }
 
 // Images
 // function images() {
-//   const dests = ['./public/assets/images',`./src//wp-content/themes/${rootFolder}/assets/images`, path_xampp ? `${path_xampp}/assets/images` : null].filter(Boolean);
+//   const dests = ['./public/assets/images',`./src/wp-bridge/wp-content/themes/${rootFolder}/assets/images`, path_xampp ? `${path_xampp}/assets/images` : null].filter(Boolean);
 //   return copyTo('./src/assets/images/**/*.+(jpg|jpeg|png|gif|webp|svg|ico)', ...dests);
 // }
 
 function images() {
   const dests = [
     './public/assets/images',
-    `./src//wp-content/themes/${rootFolder}/assets/images`,
+    `./src/wp-bridge/wp-content/themes/${rootFolder}/assets/images`,
     path_xampp ? `${path_xampp}/assets/images` : null
   ].filter(Boolean);
 
