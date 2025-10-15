@@ -1,0 +1,35 @@
+services:
+  wordpress:
+    image: wordpress:latest
+    ports:
+      - "8000:80"
+    environment:
+      WORDPRESS_DB_HOST: db
+      WORDPRESS_DB_NAME: web_jline_template
+      WORDPRESS_DB_USER: jline
+      WORDPRESS_DB_PASSWORD: jl123
+      WORDPRESS_LOCALE: ja_JP
+    volumes:
+      - "D:/DATA/hiep_learning/template_multiple/src/wp-bridge/wp-content:/var/www/html/wp-content"
+    depends_on:
+      - db
+
+  db:
+    image: mariadb:10.6
+    restart: always
+    environment:
+      MYSQL_DATABASE: web_jline_template
+      MYSQL_USER: jline
+      MYSQL_PASSWORD: jl123
+      MYSQL_ROOT_PASSWORD: jl123
+    volumes:
+      - "D:/DATA/hiep_learning/template_multiple/src/wp-bridge/db-data:/var/lib/mysql"
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    ports:
+      - "8001:80"
+    environment:
+      PMA_HOST: db
+    depends_on:
+      - db

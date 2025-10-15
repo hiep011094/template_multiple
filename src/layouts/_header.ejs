@@ -1,20 +1,20 @@
-<header class="c_header">
-    <div class="c_header__inner">  
-        <% if(file.data.page === 'top'){%><h1 class="c_header__logo"><% }else{ %><div class="c_header__logo"><% } %> 
-            <a href="" class="logo">
+<header class="c-header">
+    <div class="c-header__inner">  
+        <% if(file.data.page === 'top'){%><h1 class="c-header__logo"><% }else{ %><div class="c-header__logo"><% } %> 
+            <a href="" class="c-header__logo__link">
                 <img src="<%= assetsDir %>assets/images/common/img_logo.svg" alt="">
             </a>
-            <span class="caption">SITE</span>
+            <span class="c-header__logo__caption">SITE</span>
         <% if(file.data.page === 'top'){%></h1><% }else{ %></div><% } %> 
         
-        <div class="c_header__btn">
-            <a href="" class="c_btn">新卒採用</a>
-             <a href="" class="c_btn c_btn_orange">中途採用</a>
+        <div class="c-header__btn">
+            <a href="" class="c-btn">新卒採用</a>
+             <a href="" class="c-btn c-btn--orange">中途採用</a>
         </div>
     </div>
-    <div class="c_toggle">
-        <span class="c_toggle__line"></span>
-        <span class="c_toggle__txt">MENU</span>
+    <div class="c-toggle">
+        <span class="c-toggle__line"></span>
+        <span class="c-toggle__txt">MENU</span>
     </div>
 </header>
 <!--▲ Content area ▲-->

@@ -8,11 +8,11 @@ component > Other
 - loadpage
 ------------------------------
 */
-.is_loadding .c_loading{
+.is-loadding .c-loading{
     opacity: 1;
     pointer-events: all;
 }
-.c_loading {
+.c-loading {
     position: fixed;
     display: flex;
     justify-content: center;
@@ -21,7 +21,7 @@ component > Other
     top: 0;
     width: 100%;
     height: 100%;
-    background: var(--blue);
+    background: var(--base);
     z-index: 100;
     opacity: 0;
     pointer-events: none;
@@ -31,7 +31,7 @@ component > Other
         transform: translate(-15px, -15px);        
     }
     &__item {
-        background-color: #fff;
+        background-color: var(--white);
         width: 12px;
         height: 12px;
         border-radius: 100%;
@@ -131,7 +131,7 @@ component > Other
     position: fixed;
     bottom: 0;
     left: 0;
-    background: #ccc;
+    background: var(--white);
     z-index: 999;
     padding: 20px;
     box-sizing: border-box;
@@ -161,7 +161,7 @@ component > Other
             a {
                 display: block;
                 padding: 8px;
-                border: 1px solid #999;
+                border: 1px solid var(--base);
             }
         }
         .txt {
@@ -177,9 +177,8 @@ component > Other
 }
 
 
-.p_404{
+.p-404{
     &__inner{
-        background-color: var(--blue1);
         padding: 50px 0 100px ;
         @include mq(md) {
             padding: clamped( 100, 140, 768, 1280) 0 clamped( 130, 173, 768, 1280) 0;
@@ -194,16 +193,15 @@ component > Other
     }
 }
 
-.p_thanks{
+.p-thanks{
     &__inner{
-        background-color: var(--blue1);
         padding: 50px 0 100px ;
         @include mq(md) {
             text-align: center;
             padding: clamped( 100, 140, 768, 1280) 0 clamped( 130, 173, 768, 1280) 0;
             margin-bottom: -22px;
         }
-        .c_ttl30{
+        .c-ttl30{
             margin-bottom: 25px;
             @include mq(md) {
                 margin-bottom: 40px;

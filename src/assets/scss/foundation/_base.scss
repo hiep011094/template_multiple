@@ -5,7 +5,8 @@ foundation > base
 ------------------------------
 */
 :root{
-    --black: #333333;
+    --base: #333333;
+    --black: #000;
     --white: #fff;
 }
 
@@ -13,10 +14,9 @@ body {
     line-height: 2;
     font-size: rem(14);
     font-weight: 500;
-    color: var(--black);
+    color: var(--base);
     font-family: $font-family-base;
     letter-spacing: 0;
-    background-color: var(--white);
     @include mq(md) {
         font-size: rem(16);
     }

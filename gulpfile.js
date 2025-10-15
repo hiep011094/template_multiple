@@ -75,7 +75,7 @@ function copyTo(src, ...dests) {
 function style() {
   const dests = [
     './public/assets/css',
-    `./src/theme_wp/wp-content/themes/${rootFolder}/assets/css`,
+    `./src//wp-content/themes/${rootFolder}/assets/css`,
     path_xampp ? `${path_xampp}/assets/css` : null
   ];
   const processors = [
@@ -96,61 +96,61 @@ function style() {
 
 // SCSS
 function scss() {
-  const dests = ['./public/assets/scss',`./src/theme_wp/wp-content/themes/${rootFolder}/assets/scss`].filter(Boolean);;
+  const dests = ['./public/assets/scss',`./src//wp-content/themes/${rootFolder}/assets/scss`].filter(Boolean);;
   if (path_xampp) dests.push(`${path_xampp}/assets/scss`);
   return copyTo('./src/assets/scss/**/*.scss', ...dests);
 }
 
 // JS
 function scripts() {
-  const dests = ['./public/assets/js',`./src/theme_wp/wp-content/themes/${rootFolder}/assets/js`, path_xampp ? `${path_xampp}/assets/js` : null].filter(Boolean);;
+  const dests = ['./public/assets/js',`./src//wp-content/themes/${rootFolder}/assets/js`, path_xampp ? `${path_xampp}/assets/js` : null].filter(Boolean);;
   return copyTo('./src/assets/js/**/*.js', ...dests);
 }
 
 // Vender
 function vender() {
-  const dests = ['./public/assets/vender',`./src/theme_wp/wp-content/themes/${rootFolder}/assets/vender`, path_xampp ? `${path_xampp}/assets/vender` : null].filter(Boolean);
+  const dests = ['./public/assets/vender',`./src//wp-content/themes/${rootFolder}/assets/vender`, path_xampp ? `${path_xampp}/assets/vender` : null].filter(Boolean);
   return copyTo('./src/assets/vender/**/*.+(php|png|jpg|scss|css|js)', ...dests);
 }
 
 // Images
-function images() {
-  const dests = ['./public/assets/images',`./src/theme_wp/wp-content/themes/${rootFolder}/assets/images`, path_xampp ? `${path_xampp}/assets/images` : null].filter(Boolean);
-  return copyTo('./src/assets/images/**/*.+(jpg|jpeg|png|gif|webp|svg|ico)', ...dests);
-}
-
 // function images() {
-//   const dests = [
-//     './public/assets/images',
-//     `./src/theme_wp/wp-content/themes/${rootFolder}/assets/images`,
-//     path_xampp ? `${path_xampp}/assets/images` : null
-//   ].filter(Boolean);
-
-//   // Ảnh gốc
-//   const originalImages = gulp.src('./src/assets/images/**/*.+(gif|svg|ico|webp)')
-//     .pipe(gulp.dest(dests[0]))
-//     .pipe(gulp.dest(dests[1]));
-
-//   // Convert sang WebP
-//   const webpImages = gulp.src('./src/assets/images/**/*.+(jpg|jpeg|png)')
-//     .pipe(webp())
-//     .pipe(gulp.dest(dests[0]))
-//     .pipe(gulp.dest(dests[1]));
-
-//   return merge(originalImages,webpImages);
+//   const dests = ['./public/assets/images',`./src//wp-content/themes/${rootFolder}/assets/images`, path_xampp ? `${path_xampp}/assets/images` : null].filter(Boolean);
+//   return copyTo('./src/assets/images/**/*.+(jpg|jpeg|png|gif|webp|svg|ico)', ...dests);
 // }
+
+function images() {
+  const dests = [
+    './public/assets/images',
+    `./src//wp-content/themes/${rootFolder}/assets/images`,
+    path_xampp ? `${path_xampp}/assets/images` : null
+  ].filter(Boolean);
+
+  // Ảnh gốc
+  const originalImages = gulp.src('./src/assets/images/**/*.+(gif|svg|ico|webp)')
+    .pipe(gulp.dest(dests[0]))
+    .pipe(gulp.dest(dests[1]));
+
+  // Convert sang WebP
+  const webpImages = gulp.src('./src/assets/images/**/*.+(jpg|jpeg|png)')
+    .pipe(webp())
+    .pipe(gulp.dest(dests[0]))
+    .pipe(gulp.dest(dests[1]));
+
+  return merge(originalImages,webpImages);
+}
 
 // Videos
 function videos() {
-  const dests = ['./public/assets/videos',`./src/theme_wp/wp-content/themes/${rootFolder}/assets/videos`, path_xampp ? `${path_xampp}/assets/videos` : null].filter(Boolean);
+  const dests = ['./public/assets/videos',`./src/wp-bridge/wp-content/themes/${rootFolder}/assets/videos`, path_xampp ? `${path_xampp}/assets/videos` : null].filter(Boolean);
   return copyTo('./src/assets/videos/**/*.+(mp4|webm|ogg)', ...dests);
 }
 
 // Theme WP
-function theme_wp() {
-  const dests = ['./public/theme_wp'];
+function wp_bridge() {
+  const dests = ['./public/wp-bridge'];
   if (path_xampp) dests.push(path_xampp);
-  return copyTo('./src/theme_wp/**/*.+(php|png|jpg|css|js)', ...dests);
+  return copyTo('./src/wp-bridge/**/*.+(php|png|jpg|css|js)', ...dests);
 }
 
 // Templates
@@ -263,7 +263,7 @@ function post_css() {
 //   gulp.watch('./src/assets/js/**/*.js', gulp.parallel(scripts));
 //   gulp.watch('./src/assets/images/**', images);
 //   gulp.watch('./src/assets/videos/**', videos);
-//   gulp.watch('./src/theme_wp/**', theme_wp);
+//   gulp.watch('./src/wp-bridge/**', wp_bridge);
 //   gulp.watch('./src/**/*.ejs', templates);
 //   gulp.watch(['./public/*.html', './src/assets/sass/**/*.scss']).on('change', browserSync.reload);
 
@@ -282,7 +282,7 @@ function watchFiles() {
   const scssWatcher = gulp.watch('./src/assets/scss/**/*.scss', gulp.parallel(style));
   const scssDestDirs = [
     pathModule.resolve('./public/assets/css'),
-    pathModule.resolve(`./src/theme_wp/wp-content/themes/${rootFolder}/assets/css`)
+    pathModule.resolve(`./src/wp-bridge/wp-content/themes/${rootFolder}/assets/css`)
   ];
   if (path_xampp) scssDestDirs.push(pathModule.resolve(`${path_xampp}/assets/css`));
 
@@ -296,7 +296,7 @@ function watchFiles() {
   const venderWatcher = gulp.watch('./src/assets/vender/**', vender);
   addUnlinkHandler(venderWatcher, pathModule.resolve('./src/assets/vender'), [
     pathModule.resolve('./public/assets/vender'),
-    pathModule.resolve(`./src/theme_wp/wp-content/themes/${rootFolder}/assets/vender`),
+    pathModule.resolve(`./src/wp-bridge/wp-content/themes/${rootFolder}/assets/vender`),
     path_xampp ? pathModule.resolve(`${path_xampp}/assets/vender`) : null
   ].filter(Boolean));
 
@@ -304,7 +304,7 @@ function watchFiles() {
   const jsWatcher = gulp.watch('./src/assets/js/**/*.js', gulp.parallel(scripts));
   addUnlinkHandler(jsWatcher, pathModule.resolve('./src/assets/js'), [
     pathModule.resolve('./public/assets/js'),
-    pathModule.resolve(`./src/theme_wp/wp-content/themes/${rootFolder}/assets/js`),
+    pathModule.resolve(`./src/wp-bridge/wp-content/themes/${rootFolder}/assets/js`),
     path_xampp ? pathModule.resolve(`${path_xampp}/assets/js`) : null
   ].filter(Boolean));
 
@@ -312,7 +312,7 @@ function watchFiles() {
   const imgWatcher = gulp.watch('./src/assets/images/**', images);
   addUnlinkHandler(imgWatcher, pathModule.resolve('./src/assets/images'), [
     pathModule.resolve('./public/assets/images'),
-    pathModule.resolve(`./src/theme_wp/wp-content/themes/${rootFolder}/assets/images`),
+    pathModule.resolve(`./src/wp-bridge/wp-content/themes/${rootFolder}/assets/images`),
     path_xampp ? pathModule.resolve(`${path_xampp}/assets/images`) : null
   ].filter(Boolean));
 
@@ -320,13 +320,13 @@ function watchFiles() {
   const videoWatcher = gulp.watch('./src/assets/videos/**', videos);
   addUnlinkHandler(videoWatcher, pathModule.resolve('./src/assets/videos'), [
     pathModule.resolve('./public/assets/videos'),
-    pathModule.resolve(`./src/theme_wp/wp-content/themes/${rootFolder}/assets/videos`),
+    pathModule.resolve(`./src/wp-bridge/wp-content/themes/${rootFolder}/assets/videos`),
     path_xampp ? pathModule.resolve(`${path_xampp}/assets/videos`) : null
   ].filter(Boolean));
 
   // Theme WP
-  const themeWatcher = gulp.watch('./src/theme_wp/**', theme_wp);
-  addUnlinkHandler02(themeWatcher, pathModule.resolve('./src/theme_wp'), pathModule.resolve('./public/theme_wp'));
+  const themeWatcher = gulp.watch('./src/wp-bridge/**', wp_bridge);
+  addUnlinkHandler02(themeWatcher, pathModule.resolve('./src/wp-bridge'), pathModule.resolve('./public/wp-bridge'));
 
   // EJS
   // gulp.watch('./src/**/*.ejs', templates);
@@ -346,7 +346,7 @@ function watchFiles() {
 // Export
 const build = gulp.series(
   clean,
-  gulp.parallel(style, vender, scripts, images, videos, theme_wp, templates)
+  gulp.parallel(style, vender, scripts, images, videos, wp_bridge, templates)
 );
 
 export {
@@ -356,7 +356,7 @@ export {
   vender,
   images,
   videos,
-  theme_wp,
+  wp_bridge,
   templates,
   watchFiles as watch,
   post_css,
