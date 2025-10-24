@@ -168,41 +168,41 @@ function templates() {
     .pipe(ejs(pkg, { ext: '.html' }))
     .pipe(rename({ extname: '.html' }))
     .pipe(gulp.dest(path.ejs.dist))
-    .on('end', async () => {
-      const fs = await import('fs');
-      const path = await import('path');
-      const htmlFiles = fs.readdirSync('./public').filter(f => f.endsWith('.html'));
-      for (const file of htmlFiles) {
-        const htmlContent = fs.readFileSync(path.join('./public', file), 'utf8');
-        try {
-          const response = await fetch('https://validator.w3.org/nu/?out=json', {
-            method: 'POST',
-            headers: { 'Content-Type': 'text/html; charset=utf-8' },
-            body: htmlContent
-          });
-          const result = await response.json();
-          if (result.messages && result.messages.length > 0) {
-            console.log(`W3C HTML Validation for ${file}:`);
-            result.messages.forEach(msg => {
-              // Print line, error type, code snippet, tag name (if any)
-              let tagInfo = '';
-              if (msg.extract) {
-                tagInfo = ` | Extract: ${msg.extract.trim()}`;
-              }
-              if (msg.message.match(/element \w+/i)) {
-                const tagMatch = msg.message.match(/element (\w+)/i);
-                if (tagMatch) tagInfo += ` | Tag: <${tagMatch[1]}>`;
-              }
-              console.log(`[${msg.type}] Line ${msg.lastLine}: ${msg.message}${tagInfo}`);
-            });
-          } else {
-            console.log(`No W3C HTML errors found in ${file}!`);
-          }
-        } catch (err) {
-          console.error(`Error validating ${file}:`, err);
-        }
-      }
-    });
+    // .on('end', async () => {
+    //   const fs = await import('fs');
+    //   const path = await import('path');
+    //   const htmlFiles = fs.readdirSync('./public').filter(f => f.endsWith('.html'));
+    //   for (const file of htmlFiles) {
+    //     const htmlContent = fs.readFileSync(path.join('./public', file), 'utf8');
+    //     try {
+    //       const response = await fetch('https://validator.w3.org/nu/?out=json', {
+    //         method: 'POST',
+    //         headers: { 'Content-Type': 'text/html; charset=utf-8' },
+    //         body: htmlContent
+    //       });
+    //       const result = await response.json();
+    //       if (result.messages && result.messages.length > 0) {
+    //         console.log(`W3C HTML Validation for ${file}:`);
+    //         result.messages.forEach(msg => {
+    //           // Print line, error type, code snippet, tag name (if any)
+    //           let tagInfo = '';
+    //           if (msg.extract) {
+    //             tagInfo = ` | Extract: ${msg.extract.trim()}`;
+    //           }
+    //           if (msg.message.match(/element \w+/i)) {
+    //             const tagMatch = msg.message.match(/element (\w+)/i);
+    //             if (tagMatch) tagInfo += ` | Tag: <${tagMatch[1]}>`;
+    //           }
+    //           console.log(`[${msg.type}] Line ${msg.lastLine}: ${msg.message}${tagInfo}`);
+    //         });
+    //       } else {
+    //         console.log(`No W3C HTML errors found in ${file}!`);
+    //       }
+    //     } catch (err) {
+    //       console.error(`Error validating ${file}:`, err);
+    //     }
+    //   }
+    // });
 }
 
 function addUnlinkHandler02(watcher, srcDir, distDir) {
