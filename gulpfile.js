@@ -36,7 +36,6 @@ const path = {
   },
   json: {
     package: './package.json',
-    newsList: './src/_data/newsList.json',
   },
 };
 
@@ -51,11 +50,8 @@ if (fs.existsSync(filePath)) {
 
 // Load dữ liệu JSON
 const pkg = JSON.parse(fs.readFileSync(path.json.package, 'utf8'));
-const newsListJson = JSON.parse(fs.readFileSync(path.json.newsList, 'utf8'));
 
-global.jsonData = {
-  newsListJson,
-};
+
 
 // Clean assets
 function clean() {

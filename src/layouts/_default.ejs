@@ -19,9 +19,9 @@ for (let index = 1; index < array.length; index++) {
   <meta property="og:url" content>
   <meta property="og:image" content>
   <meta property="og:site_name" content="">
-  <meta property="og:description" content="<% if(file.data.description){ %><%= file.data.description %><% }else{%><%= jsonData.newsListJson.description %><% }%>">
-  <meta name="description" content="<% if(file.data.description){ %><%= file.data.description %><% }else{%><%= jsonData.newsListJson.description %><% }%>">
-  <meta name="keywords" content="<% if(file.data.keyword){ %><%= file.data.keyword %><% }else{%><%= jsonData.newsListJson.keyword %><% }%>">
+  <meta property="og:description" content="<% if(file.data.description){ %><%= file.data.description %><% }else{%><%= "" %><% }%>">
+  <meta name="description" content="<% if(file.data.description){ %><%= file.data.description %><% }else{%><%= "" %><% }%>">
+  <meta name="keywords" content="<% if(file.data.keyword){ %><%= file.data.keyword %><% }else{%><%= "" %><% }%>">
   <link rel="shortcut icon" type="image/x-icon" href="<%= assetsDir %>assets/images/common/favicon.ico" />
   <title><%= file.data.title %></title>
   <!-- link -->  
