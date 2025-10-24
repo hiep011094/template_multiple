@@ -205,14 +205,15 @@ function templates() {
     // });
 }
 
-function addUnlinkHandler02(watcher, srcDir, distDir) {
-  watcher.on('unlink', (filepath) => {
-    const filePathFromSrc = pathModule.relative(srcDir, filepath); // lấy đường dẫn tương đối so với srcDir
-    const destFilePath = pathModule.join(distDir, filePathFromSrc); // map sang distDir
-    del.sync(destFilePath);
-    console.log(`🗑️ Deleted: ${destFilePath}`);
-  });
-}
+// function addUnlinkHandler02(watcher, srcDir, distDir) {
+//   watcher.on('unlink', (filepath) => {
+//     const filePathFromSrc = pathModule.relative(srcDir, filepath); // lấy đường dẫn tương đối so với srcDir
+//     const destFilePath = pathModule.join(distDir, filePathFromSrc); // map sang distDir
+//     del.sync(destFilePath);
+//     console.log(`🗑️ Deleted: ${destFilePath}`);
+//   });
+// }
+
 function addUnlinkHandler(watcher, srcDir, distDirs = []) {
   watcher.on("unlink", (filepath) => {
     const filePathFromSrc = pathModule.relative(srcDir, filepath); // vd: "main/app.js"
