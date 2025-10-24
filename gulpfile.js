@@ -17,7 +17,7 @@ import { fileURLToPath } from 'url';
 import gulpCached from 'gulp-cached';
 import cssnano from 'cssnano';
 import gulpSass from 'gulp-sass';
-import dartSass from 'sass';
+import * as dartSass from 'sass';
 import sortMediaQueries from 'postcss-sort-media-queries';
 
 const sass = gulpSass(dartSass);
@@ -209,6 +209,37 @@ function addUnlinkHandler01(watcher, srcDir, distDir, options = {}) {
   });
 }
 
+function addUnlinkHandler_img(watcher, srcDir, distDirs = []) {
+  watcher.on("unlink", (filepath) => {
+    const filePathFromSrc = pathModule.relative(srcDir, filepath);
+    distDirs.forEach(distDir => {
+      const destFilePath = pathModule.join(distDir, filePathFromSrc);
+      if (fs.existsSync(destFilePath)) {
+        del.sync(destFilePath);
+        console.log(`🗑️ Deleted: ${destFilePath}`);
+      }
+      // Nếu là ảnh jpg/jpeg/png thì xóa luôn file webp cùng tên
+      if (/\.(jpg|jpeg|png)$/i.test(destFilePath)) {
+        const webpFile = destFilePath.replace(/\.(jpg|jpeg|png)$/i, '.webp');
+        if (fs.existsSync(webpFile)) {
+          del.sync(webpFile);
+          console.log(`🗑️ Deleted: ${webpFile}`);
+        }
+      }
+      // Sau khi xóa file, thử xóa thư mục nếu rỗng
+      const dirPath = pathModule.dirname(destFilePath);
+      try {
+        if (fs.existsSync(dirPath) && fs.readdirSync(dirPath).length === 0) {
+          fs.rmdirSync(dirPath);
+          console.log(`🗑️ Deleted empty folder: ${dirPath}`);
+        }
+      } catch (err) {
+        // Nếu không xóa được (thư mục không rỗng), bỏ qua
+      }
+    });
+  });
+}
+
 // function addScssUnlinkHandler(watcher, srcDir, distDir) {
 //   watcher.on("unlink", (filepath) => {
 //     const filePathFromSrc = pathModule.relative(srcDir, filepath); // ví dụ: "components/foo.scss"
@@ -310,7 +341,7 @@ function watchFiles() {
 
   // Images
   const imgWatcher = gulp.watch('./src/assets/images/**', images);
-  addUnlinkHandler(imgWatcher, pathModule.resolve('./src/assets/images'), [
+  addUnlinkHandler_img(imgWatcher, pathModule.resolve('./src/assets/images'), [
     pathModule.resolve('./public/assets/images'),
     pathModule.resolve(`./src/wp-bridge/wp-content/themes/${rootFolder}/assets/images`),
     path_xampp ? pathModule.resolve(`${path_xampp}/assets/images`) : null
@@ -325,8 +356,8 @@ function watchFiles() {
   ].filter(Boolean));
 
   // Theme WP
-  const themeWatcher = gulp.watch('./src/wp-bridge/**', wp_bridge);
-  addUnlinkHandler02(themeWatcher, pathModule.resolve('./src/wp-bridge'), pathModule.resolve('./public/wp-bridge'));
+  // const themeWatcher = gulp.watch('./src/wp-bridge/**', wp_bridge);
+  // addUnlinkHandler02(themeWatcher, pathModule.resolve('./src/wp-bridge'), pathModule.resolve('./public/wp-bridge'));
 
   // EJS
   // gulp.watch('./src/**/*.ejs', templates);
@@ -342,11 +373,19 @@ function watchFiles() {
   gulp.watch(['./public/*.html', './src/assets/sass/**/*.scss']).on('change', browserSync.reload);
 }
 
-
+function build_wp_bridge(){
+  return gulp.src([
+    './src/wp-bridge/**',
+    '!./src/wp-bridge/db-data{,/**}',
+    '!./src/wp-bridge/docker-compose.yml'
+  ], { dot: true })
+  .pipe(gulp.dest('./public/wp-bridge'));
+}
+gulp.task('build_wp_bridge', build_wp_bridge);
 // Export
 const build = gulp.series(
   clean,
-  gulp.parallel(style, vender, scripts, images, videos, wp_bridge, templates)
+  gulp.parallel(style, vender, scripts, images, videos , templates)
 );
 
 export {
@@ -356,10 +395,9 @@ export {
   vender,
   images,
   videos,
-  wp_bridge,
   templates,
   watchFiles as watch,
   post_css,
   build,
-  clean
+  clean,
 };
