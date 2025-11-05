@@ -130,7 +130,9 @@ function images() {
 
   // Convert sang WebP
   const webpImages = gulp.src('./src/assets/images/**/*.+(jpg|jpeg|png)')
-    .pipe(webp())
+    .pipe(webp({
+      quality: 90
+    }))
     .pipe(gulp.dest(dests[0]))
     .pipe(gulp.dest(dests[1]));
 
