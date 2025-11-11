@@ -32,7 +32,7 @@ body.overflow_modal {
 .body-wrapper {
     position: relative;
     display: block;
-    overflow: hidden;
+    overflow: clip;
 }
 
 img {
