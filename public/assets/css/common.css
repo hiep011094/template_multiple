@@ -28,7 +28,7 @@ foundation > reset
 /*!
 foundation > base
 ------------------------------
-*/:root{--base:#333;--black:#000;--white:#fff}body{color:var(--base);font-family:Noto Sans JP,sans-serif;font-size:.875rem;font-weight:500;letter-spacing:0;line-height:2}body.overflow_modal{height:100%;overflow-y:scroll;position:fixed;width:100%}.body-wrapper{display:block;overflow:hidden;position:relative}img{width:100%}a{cursor:pointer;transition:.5s}a:hover{opacity:1}.pc{display:none!important}.sp{display:block!important}
+*/:root{--base:#333;--black:#000;--white:#fff}body{color:var(--base);font-family:Noto Sans JP,sans-serif;font-size:.875rem;font-weight:500;letter-spacing:0;line-height:2}body.overflow_modal{height:100%;overflow-y:scroll;position:fixed;width:100%}.body-wrapper{display:block;overflow:clip;position:relative}img{width:100%}a{cursor:pointer;transition:.5s}a:hover{opacity:1}.pc{display:none!important}.sp{display:block!important}
 
 /*!
 component > Texts

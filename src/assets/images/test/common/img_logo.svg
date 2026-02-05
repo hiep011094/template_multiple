@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="253" height="37" viewBox="0 0 253 37">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="Rectangle_23964" data-name="Rectangle 23964" width="35" height="35" transform="translate(0 0)" fill="#353786" stroke="#707070" stroke-width="1"/>
+    </clipPath>
+  </defs>
+  <g id="Group_19128" data-name="Group 19128" transform="translate(-557 -571)">
+    <text id="オフセット岩村" transform="translate(634 601)" fill="#353786" font-size="24" font-family="NotoSansJP-Medium, Noto Sans JP" font-weight="500" letter-spacing="0.05em"><tspan x="0" y="0">オフセット岩村</tspan></text>
+    <text id="株式_会社" data-name="株式
+会社" transform="translate(611 590)" fill="#353786" font-size="10" font-family="NotoSansJP-Medium, Noto Sans JP" font-weight="500" letter-spacing="0.05em"><tspan x="0" y="0">株式</tspan><tspan x="0" y="11">会社</tspan></text>
+    <g id="Mask_Group_88" data-name="Mask Group 88" transform="translate(557 571)" clip-path="url(#clip-path)">
+      <g id="Group_19127" data-name="Group 19127" transform="translate(0 -4.778)">
+        <path id="Path_493" data-name="Path 493" d="M-9863.8,7515.458h21.834v-22.284Z" transform="translate(9876.936 -7475.409)" fill="#353786"/>
+        <line id="Line_103" data-name="Line 103" x1="33.753" y2="33.753" transform="translate(6.01 10.672)" fill="none" stroke="#353786" stroke-width="1"/>
+        <line id="Line_104" data-name="Line 104" x1="33.753" y2="33.753" transform="translate(4.76 9.422)" fill="none" stroke="#353786" stroke-width="1"/>
+        <line id="Line_105" data-name="Line 105" x1="33.753" y2="33.753" transform="translate(4.76 6.921)" fill="none" stroke="#353786" stroke-width="1"/>
+        <line id="Line_106" data-name="Line 106" x1="40" y2="40" transform="translate(3 -0.222)" fill="none" stroke="#353786" stroke-width="1"/>
+        <line id="Line_107" data-name="Line 107" x1="41" y2="40" transform="translate(0 -0.222)" fill="none" stroke="#353786" stroke-width="1"/>
+      </g>
+    </g>
+  </g>
+</svg>
